@@ -1,0 +1,51 @@
+PINBALL
+│
+├── 1. Window / Game Loop
+│   ├── Initialize raylib
+│   ├── Create window
+│   ├── Game loop
+│   └── Delta time
+│
+├── 2. Ball
+│   ├── Position
+│   ├── Velocity
+│   ├── Radius
+│   ├── Gravity
+│   └── Draw()
+│
+├── 3. Table
+│   ├── Left wall
+│   ├── Right wall
+│   ├── Top wall
+│   └── Bottom = drain
+│
+├── 4. Collision
+│   ├── Ball vs walls
+│   ├── Ball vs bumpers
+│   └── Ball vs flippers
+│
+├── 5. Flippers
+│   ├── Left flipper
+│   ├── Right flipper
+│   ├── Input
+│   └── Apply force to ball
+│
+├── 6. Bumpers
+│   ├── Position
+│   ├── Radius
+│   ├── Collision
+│   ├── Bounce force
+│   └── Score
+│
+├── 7. Game State
+│   ├── Score
+│   ├── Balls remaining
+│   ├── Reset ball
+│   └── Game over
+│
+└── 8. Polish — ONLY AFTER IT WORKS
+    ├── Sound
+    ├── Particles
+    ├── Lights
+    ├── Better table
+    └── High score

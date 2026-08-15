@@ -1,0 +1,8 @@
+#compiled executable
+pinball
+
+#object files
+*.o
+
+#CMake build directory
+build/
