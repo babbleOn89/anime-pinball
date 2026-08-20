@@ -7,6 +7,7 @@ public:
     Ball(Vector2 startposition, float radius);
 
     void Update(float dt, float gravity);
+    void Launch();
     void CheckWallCollision(int screenWidth, int screenHeight);
     void Draw() const;
 

@@ -17,6 +17,11 @@ void Ball::Update(float dt, float gravity)
     position.y += velocity.y *dt;
 }
 
+void Ball::Launch()
+{
+    velocity.y = -700;
+}
+
 void Ball::CheckWallCollision(int screenWidth, int screenHeight)
 {
     if(position.x - radius <= 0)
