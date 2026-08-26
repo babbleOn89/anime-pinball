@@ -2,26 +2,43 @@
 #include "raylib.h"
 
 Game::Game()
-    : ball(
-        {screenWidth / 2.0f, 100.0f},
-        15.0f
+    : table(screenWidth, screenHeight),  
+      ball(
+        table.GetBallStartPosition(ballRadius),
+        ballRadius
         )
 {
 }
 
 void Game::Update(float dt)
 {
+    //launch the ball from launch area
     if(IsKeyPressed(KEY_SPACE))
     {
         ball.Launch();
     }
 
     ball.Update(dt, gravity);
-    ball.CheckWallCollision(screenWidth, screenHeight);
+    ball.CheckWallCollision(table.GetOuterBounds());
+
+    const Rectangle bounds = table.GetOuterBounds();
+    const float tableBottom = bounds.y + bounds.height;
+
+    ball.CheckLauncherFloor(
+            table.GetLauncherDividerX(),
+            tableBottom
+            );
+    if(ball.IsBelow(screenHeight + 50.0f))
+    {
+        ball.Reset(
+                table.GetBallStartPosition(ballRadius)
+                );
+    }
 }
 
 void Game::Draw() const
 {
+    table.Draw();
     ball.Draw();
 
     DrawText(

@@ -4,7 +4,7 @@
 int main()
 {
     const int screenWidth = 800;
-    const int screenHeight = 600;
+    const int screenHeight = 900;
 
     InitWindow(screenWidth, screenHeight, "Anime Pinball");
     SetTargetFPS(60);

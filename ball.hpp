@@ -8,8 +8,12 @@ public:
 
     void Update(float dt, float gravity);
     void Launch();
-    void CheckWallCollision(int screenWidth, int screenHeight);
+    void CheckWallCollision(Rectangle bounds);
     void Draw() const;
+
+    void Reset(Vector2 startPosition);
+    bool IsBelow(float y) const;
+    void CheckLauncherFloor(float dividerX, float bottom);
 
 private:
     Vector2 position;
