@@ -1,6 +1,7 @@
 #pragma once
 #include "ball.hpp"
 #include "table.hpp"
+#include "plunger.hpp"
 
 class Game
 {
@@ -17,6 +18,8 @@ private:
     static constexpr float ballRadius = 15.0f;
 
     Table table;
+    Plunger plunger;
     Ball ball;
+    bool ballIsReadyToLaunch = true;
 };
 

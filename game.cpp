@@ -3,6 +3,7 @@
 
 Game::Game()
     : table(screenWidth, screenHeight),  
+      plunger(table.GetPlungerStartBounds()),
       ball(
         table.GetBallStartPosition(ballRadius),
         ballRadius
@@ -12,10 +13,19 @@ Game::Game()
 
 void Game::Update(float dt)
 {
-    //launch the ball from launch area
-    if(IsKeyPressed(KEY_SPACE))
+
+    if(ballIsReadyToLaunch)
     {
-        ball.Launch();
+        plunger.Update(dt);
+
+        if(IsKeyReleased(KEY_SPACE))
+        {
+            float power = plunger.GetPower();
+            ball.Launch(power);
+            plunger.Release();
+
+            ballIsReadyToLaunch = false;
+        }
     }
 
     ball.Update(dt, gravity);
@@ -33,12 +43,15 @@ void Game::Update(float dt)
         ball.Reset(
                 table.GetBallStartPosition(ballRadius)
                 );
+        ballIsReadyToLaunch = true;
     }
 }
 
 void Game::Draw() const
 {
     table.Draw();
+    plunger.Draw();
+
     ball.Draw();
 
     DrawText(

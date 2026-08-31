@@ -17,9 +17,14 @@ void Ball::Update(float dt, float gravity)
     position.y += velocity.y *dt;
 }
 
-void Ball::Launch()
+void Ball::Launch(float power)
 {
-    velocity.y = -700;
+    const float minimumLaunchSpeed = 300.0f;
+    const float maximumLaunchSpeed = 1000.0f;
+
+    velocity.y =
+        -(minimumLaunchSpeed +
+        power * (maximumLaunchSpeed - minimumLaunchSpeed));
 }
 
 void Ball::CheckWallCollision(Rectangle bounds)

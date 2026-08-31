@@ -32,6 +32,29 @@ Vector2 Table::GetBallStartPosition(float ballRadius) const
         };
 }
 
+Rectangle Table::GetPlungerStartBounds() const
+{
+    const float rightWall =
+        outerBounds.x + outerBounds.width;
+
+    const float launcherCenterX =
+        launcherDividerX +
+        (rightWall - launcherDividerX) / 2.0f;
+
+    const float tableBottom =
+        outerBounds.y + outerBounds.height;
+
+        const float plungerWidth = 20.0f;
+        const float plungerHeight = 25.0f;
+
+        return {
+            launcherCenterX - plungerWidth / 2.0f,
+            tableBottom,
+            plungerWidth,
+            plungerHeight
+        };
+}
+
 void Table::Draw() const
 {
     const Color tableBackground = {12, 20, 45, 255};

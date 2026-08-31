@@ -9,6 +9,7 @@ public:
     void Draw() const;
     Rectangle GetOuterBounds() const;
     Vector2 GetBallStartPosition(float ballRadius) const;
+    Rectangle GetPlungerStartBounds() const;
     float GetLauncherDividerX() const;
 
 
